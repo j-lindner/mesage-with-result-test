@@ -31,4 +31,10 @@ public class ProcessController {
         return stateService.publishMessage(myId, message, variables);
     }
 
+    @PostMapping("/correlate/{myId}/{message}")
+    public CompletableFuture<?> correlateMessage(@PathVariable String myId, @PathVariable String message, @RequestBody Map<String,
+            Object> variables) {
+        return stateService.correlateMessage(myId, message, variables);
+    }
+
 }

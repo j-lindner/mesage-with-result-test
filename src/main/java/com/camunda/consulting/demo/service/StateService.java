@@ -31,4 +31,13 @@ public class StateService {
                 // timeout if JobWorker doesn't complete within 5 seconds
                 .toCompletableFuture().orTimeout(5, TimeUnit.SECONDS);
     }
+
+    public CompletableFuture<?> correlateMessage(String myId, String message, Map<String, Object> variables) {
+        return zeebeClient.newCorrelateMessageCommand().messageName(message).correlationKey(myId).variables(variables).send()
+//                .exceptionallyCompose( x -> {
+//                    // TODO: implement getState()
+//                    return null;
+//                })
+                .toCompletableFuture().orTimeout(5, TimeUnit.SECONDS);
+    }
 }

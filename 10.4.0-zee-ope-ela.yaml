@@ -1,4 +1,6 @@
 global:
+  image:
+    tag: 8.6.0-alpha5
   elasticsearch:
     enabled: true
   multitenancy:
@@ -8,6 +10,8 @@ global:
       enabled: false
 
 zeebe:
+  image:
+    tag: 8.6.0-alpha5
   enabled: true
   clusterSize: "1"
   partitionCount: "1"
@@ -18,6 +22,8 @@ zeebe:
       value: "true"
 
 zeebeGateway:
+  image:
+    tag: 8.6.0-alpha5
   replicas: 1
   env:
     - name: ZEEBE_GATEWAY_MONITORING_ENABLED
@@ -33,6 +39,10 @@ console:
 
 operate:
   enabled: true
+  image:
+    tag: 8.6.0-alpha5
+  readinessProbe:
+    enabled: false # Operate not getting ready in 8.6.0-alpha5
 
 tasklist:
   enabled: false

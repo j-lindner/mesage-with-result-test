@@ -10,6 +10,6 @@ camunda:
     zeebe:
       enabled: true
       grpc-address: http://localhost:26500
-#      rest-address: http://localhost:8080
+      rest-address: http://localhost:8082
       prefer-rest-over-grpc: false
 #      audience: zeebe-api
